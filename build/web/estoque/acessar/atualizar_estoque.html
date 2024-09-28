@@ -1,0 +1,60 @@
+    <!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulário de Atualização</title>
+        <link rel="stylesheet" href="configuracoesCRUD_estoque.css"/>
+        <script>
+            function mascaraDimensoes(input) {
+                let dimensoes = input.value;
+                // Remove tudo que não for número
+                dimensoes = dimensoes.replace(/\D/g, "");
+                // Adiciona pontos e traço conforme o tamanho
+                dimensoes = dimensoes.replace(/^(\d{2})(\d)/, "$1x$2");
+                dimensoes = dimensoes.replace(/^(\d{2})\x(\d{2})(\d)/, "$1x$2x$3");
+                dimensoes = dimensoes.replace(/\x(\d{2})(\d{1,2,3})$/, ".$1x$2x$3");
+                // Atualiza o valor no campo
+                input.value = dimensoes;
+            }
+            function tirarLetrasePontos(input) {
+                let qualquercoisa = input.value;
+                // Remove tudo que não for número ou ponto
+                qualquercoisa = qualquercoisa.replace(/[^\d.]/g, "");
+                input.value = qualquercoisa;
+            }
+            function deixarNumeros(input){
+                let dimensoes = input.value;
+                dimensoes = dimensoes.replace(/\D/g, "");
+                input.value = dimensoes;
+            }
+
+        </script>
+    </head>
+
+    <body>
+
+        <form action="http://localhost:8080/AtualizarEstoqueServlet" method="post">
+            <h2>Atualizar</h2>
+
+            <label>ID:</label>
+            <input type="number" id="id" name="id" required>
+
+            <label>Quantidade:</label>
+            <input type="number" id="quantidade" name="quantidade" required>
+
+            <label>Peso:</label>
+            <input type="text" id="peso" name="peso"
+                   oninput="deixarNumeros(this)" required>
+
+            <label>Dimensoes:</label>
+            <input type="text" id="dimensoes" name="dimensoes" maxlength="8"
+                   oninput="mascaraDimensoes(this)" required>
+
+            <label>Preco:</label>
+            <input type="text" id="preco" name="preco"  oninput="deixarNumeros(this)" required>
+            <input type="submit" value="Atualizar">
+        </form>
+
+    </body>
+</html>

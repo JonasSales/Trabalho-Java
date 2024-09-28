@@ -1,0 +1,59 @@
+header {
+    background-color: #4CAF50;
+    padding: 20px;
+    color: white;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+
+
+nav {
+    margin: 20px 0;
+}
+
+nav a {
+    margin: 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #4CAF50;
+}
+
+main {
+    height: calc(100vh - 140px); /* Ajuste a altura para ocupar mais espaço */
+    width: 100%;
+    padding: 0; /* Remova o padding */
+    display: flex;
+    background-color: white
+}
+
+iframe {
+    border: 0;
+    width: 45%; /* Use 45% da largura disponível */
+    height: 30%; /* Use 30% da altura disponível */
+    min-width: 400px; /* Defina uma largura mínima, se necessário */
+    min-height: 600px; /* Defina uma altura mínima, se necessário */
+    position: relative;
+    top: 50%; 
+    left: 50%;
+    margin-right: -40%;
+    transform: translate(-50%, -50%)
+}
+
+footer {
+    background-color: #333;
+    color: #cccccc;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

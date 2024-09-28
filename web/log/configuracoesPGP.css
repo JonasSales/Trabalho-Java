@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    background-color: #4CAF50;
+    width: 100%;
+    padding: 20px;
+    color: white;
+}
+
+nav {
+    margin: 20px 0;
+}
+
+nav a {
+    margin: 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #4CAF50;
+}
+
+main {
+    height: calc(80vh - 140px); /* Ajuste a altura para ocupar mais espaço */
+    padding: 0; /* Remova o padding */
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center; /* Centraliza o iframe horizontalmente */
+    align-items: center; /* Centraliza o iframe verticalmente */
+}
+
+iframe {
+    border: 0;
+    width: 100%; /* Use 100% da largura disponível */
+    height: 100%; /* Use 100% da altura disponível */
+    min-width: 800px; /* Defina uma largura mínima, se necessário */
+    min-height: 600px; /* Defina uma altura mínima, se necessário */
+}
+
+footer {
+    background-color: #333;
+    color: #cccccc;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
