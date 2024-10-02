@@ -1,6 +1,7 @@
 header {
     background-color: #4CAF50;
-    padding: 20px;
+    height: 75px;
+    padding-top: 5px;
     color: white;
 }
 
@@ -42,18 +43,17 @@ iframe {
     height: 30%; /* Use 30% da altura disponível */
     min-width: 400px; /* Defina uma largura mínima, se necessário */
     min-height: 600px; /* Defina uma altura mínima, se necessário */
-    position: relative;
-    top: 50%; 
-    left: 50%;
-    margin-right: -40%;
-    transform: translate(-50%, -50%)
+    left: 34.5%;
+    display: flex;
+    position: fixed;
+    
 }
 
 footer {
     background-color: #333;
     color: #cccccc;
     padding: 10px;
-    position: relative;
+    position: fixed;
     bottom: 0;
     width: 100%;
 }

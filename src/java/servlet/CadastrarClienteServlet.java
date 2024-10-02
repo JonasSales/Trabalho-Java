@@ -1,7 +1,9 @@
 package servlet;
 
 import bancodedados.Cliente;
+import bancodedados.Usuario;
 import dao.ClienteDAO;
+import dao.UsuarioDAO;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -23,18 +25,35 @@ public class CadastrarClienteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         
+        
+        String email = request.getParameter("email");
+        String senha = request.getParameter("senha");
+        
+        Usuario nUsuario = new Usuario();
+        
+        nUsuario.setEmail(email);
+        nUsuario.setSenha(senha);
+        
+        UsuarioDAO.InserirUsuario(nUsuario);
+        
+        
+       
         String nome = request.getParameter("nome");
         String cpf = request.getParameter("cpf");
-        String email = request.getParameter("email");
         String datadenascimento = request.getParameter("datadenascimento");
         
+        
+        Usuario u = UsuarioDAO.BuscarUsuario(email);
+        
         Cliente geral = new Cliente();
+        
+        geral.setId(u.getId());
+        geral.setEmail(u.getEmail());
         geral.setNome(nome);
         geral.setCpf(cpf);
-        geral.setEmail(email);
         geral.setDatadenascimento(datadenascimento);
         
-        boolean inserido = ClienteDAO.InserirClientes(geral);
+        boolean inserido = ClienteDAO.AtualizarClientes(geral);
         
         response.setContentType("text/html;charset=UTF-8"); // Definindo o tipo de conteúdo
         
@@ -46,7 +65,7 @@ public class CadastrarClienteServlet extends HttpServlet {
             out.println("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>");
             out.println("<script>");
             out.println("setTimeout(function() {");
-            out.println("window.location.href = 'clientes/apresentacao.html';"); // Substitua pela sua página principal
+            out.println("window.location.href = 'http://localhost:8080/LoginServlet';"); // Substitua pela sua página principal
             out.println("}, 5000);"); // Redireciona após 5 segundos
             out.println("</script>");
             out.println("</head>");

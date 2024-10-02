@@ -19,6 +19,7 @@ public class EstoqueDAO {
     private static final String USUARIO = "postgres"; // seu usuário
     private static final String SENHA = "1234";
     
+    
     private static final String SELECT_SQL = "select * from vw_produtos_estoque order by id_produto;";
     private static final String UPDATE_SQL = "UPDATE estoque SET quantidade= ?, peso= ?, dimensoes= ?, preco= ? WHERE id_produto = ?";
     
